@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" onsubmit="return validate()">
+        <label>Username: </label>
+        <input type="text" id="uname" name="uname"><br>
+        <div id="unameError" class="error"></div>
+
+        <label>Password: </label>
+        <input type="password" id="pwd" name="pwd"><br>
+        <div id="pwdError" class="error"></div>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validate() {
+            // Clear previous errors
+            document.getElementById('unameError').innerText = '';
+            document.getElementById('pwdError').innerText = '';
+
+            let uname = document.getElementById('uname').value.trim();
+            let pwd = document.getElementById('pwd').value.trim();
+            let valid = true;
+
+            if (uname === '') {
+                document.getElementById('unameError').innerText = 'Username is required';
+                valid = false;
+            }
+
+            if (pwd === '') {
+                document.getElementById('pwdError').innerText = 'Password is required';
+                valid = false;
+            }
+
+            return valid; // If false, form submission stops
+        }
+    </script>
+</body>
+</html>
