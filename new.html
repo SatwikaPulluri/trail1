@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+    Username: <input type="text" id="uname"><br>
+    Password: <input type="password" id="pwd"><br>
+    <input type="submit" value="Login">
+</form>
+
+<div id="errorMsg" style="color:red; margin-top:10px;"></div>
+
+<script>
+function validate() {
+    var uname = document.getElementById("uname").value;
+    var pwd = document.getElementById("pwd").value;
+    var errorDiv = document.getElementById("errorMsg");
+    errorDiv.innerHTML = "";  // Clear previous error messages
+
+    if(uname === "" || pwd === "") {
+        errorDiv.innerHTML = "Both fields are required!";
+        return false;  // Prevent form submission
+    }
+    return true;  // Allow form submission
+}
+</script>
+</body>
+</html>
